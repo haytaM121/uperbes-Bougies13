@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superbes Bougies – شموع فاخرة</title>
+    <style>
+        body {
+            font-family: 'Amiri', serif; /* Elegant Arabic font */
+            margin: 0;
+            padding: 0;
+            background-color: #fff8e1; /* Light beige */
+            color: #4a4a4a;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.postimg.cc/3x3QzSGq/candle-flame.gif') center/cover no-repeat; /* Subtle candle flame animation */
+            opacity: 0.2; /* Ensure readability */
+            z-index: -1;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #fbe4c4; /* Soft orange */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            max-width: 180px;
+            border-radius: 50%;
+            border: 3px solid #d4af37; /* Golden border */
+        }
+
+        .product {
+            margin: 20px auto;
+            max-width: 300px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 15px;
+        }
+
+        .product h2 {
+            font-size: 22px;
+            margin: 10px 0;
+            color: #d35400; /* Warm orange */
+        }
+
+        .product .price {
+            color: #d4af37; /* Golden */
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .order-btn {
+            background-color: #e67e22; /* Vibrant orange */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(230, 126, 34, 0.5);
+        }
+
+        .order-btn:hover {
+            background-color: #d35400;
+            box-shadow: 0 6px 15px rgba(211, 84, 0, 0.7);
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .form-container h2 {
+            color: #d35400; /* Warm orange */
+            margin-bottom: 20px;
+        }
+
+        .form-container input, .form-container select {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #d4af37; /* Golden */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #b38e2c;
+            transform: scale(1.05);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header img {
+                max-width: 140px;
+            }
+
+            .product {
+                max-width: 90%;
+                margin: 10px auto;
+            }
+
+            .form-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header img {
+                max-width: 120px;
+            }
+
+            .product h2 {
+                font-size: 18px;
+            }
+
+            .order-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .form-container input, .form-container select {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .form-container button {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+
+        /* Video Background Styles */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Slight dark overlay for readability */
+            z-index: -1;
+        }
+
+        /* Add animation for the logo */
+        .logo-image {
+            animation: pulse 2s infinite;
+            border: 5px solid #d4af37; /* Golden border */
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.5); /* Golden glow */
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 10px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 6px 15px rgba(212, 175, 55, 0.7);
+            }
+        }
+
+        /* Add animation and vibrant color for the slogan */
+        .slogan {
+            font-family: 'Amiri', serif;
+            font-size: 18px;
+            color: #d35400; /* Vibrant orange */
+            margin-top: 10px;
+            animation: fadeIn 3s ease-in-out infinite alternate;
+        }
+
+        .slogan span {
+            font-size: 19px;
+            color: #4a4a4a; /* Complementary dark gray */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+        }
+
+        @media (max-width: 768px) {
+            .modal-content img {
+                max-height: 300px; /* Limit height on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content img {
+                max-height: 200px; /* Further limit height for very small screens */
+            }
+        }
+
+        .modal-content h2 {
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            color: #4a4a4a;
+            margin-bottom: 10px;
+        }
+
+        .modal-content .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .modal-content .order-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content .order-btn:hover {
+            background-color: #1e8449;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .modal-close:hover {
+            background: #c0392b;
+        }
+
+        /* Social Media Icons Styles */
+        .social-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icons .facebook {
+            background-color: #3b5998; /* Facebook Blue */
+        }
+
+        .social-icons .instagram {
+            background: radial-gradient(circle at 30% 30%, #fdf497, #fdf497, #fd5949, #d6249f, #285aeb); /* Instagram Gradient */
+        }
+
+        .social-icons .tiktok {
+            background-color: #010101; /* TikTok Black */
+        }
+
+        .social-icons .whatsapp {
+            background-color: #25d366; /* WhatsApp Green */
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="https://i.postimg.cc/3R8z8c5B/candles-background.mp4" type="video/mp4">
+        <!-- Fallback for unsupported browsers -->
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
+    <header>
+        <img src="https://i.postimg.cc/Qxjp5qWc/6023652377095161941-1.jpg" alt="Superbes Bougies Logo" class="logo-image">
+        <p class="slogan">
+            Superbes Bougies<br>
+            <span>أناقة النور في كل لهب</span>
+        </p>
+    </header>
+    <div id="notification" style="display: none; background-color: #f8e1e7; color: #333; padding: 10px; margin: 10px 0; border-radius: 5px;"></div>
+    <div class="products-grid">
+        <div class="product">
+            <img src="https://i.postimg.cc/B6tzq0JQ/6035118342047645560.jpg" alt="شمعة معطرة">
+            <h2>شمعة معطرة</h2>
+            <p class="price">800 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة معطرة')">اطلب الآن</button>
+        </div>
+        <div class="product">
+            <img src="https://i.postimg.cc/TYZ0MxWc/6046476546270676529.jpg" alt="شمعة رومانسية">
+            <h2>شمعة رومانسية</h2>
+            <p class="price">1200 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة رومانسية')">اطلب الآن</button>
+        </div>
+        <div class="product">
+            <img src="https://i.postimg.cc/y881Kq4k/14252e50-5898-43f9-baac-39269ee94593.jpg" alt="شمعة فاخرة">
+            <h2>شمعة فاخرة</h2>
+            <p class="price">1500 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة فاخرة')">اطلب الآن</button>
+        </div>
+        <div class="product">
+            <img src="https://i.postimg.cc/XqLR1Jvx/6050873957126620379.jpg" alt="شمعة كلاسيكية">
+            <h2>شمعة كلاسيكية</h2>
+            <p class="price">1000 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة كلاسيكية')">اطلب الآن</button>
+        </div>
+        <div class="product">
+            <img src="https://i.postimg.cc/cCR2zcsQ/6046476546270676525.jpg" alt="شمعة إضافية 1">
+            <h2>شمعة إضافية 1</h2>
+            <p class="price">900 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة إضافية 1')">اطلب الآن</button>
+        </div>
+        <div class="product">
+            <img src="https://i.postimg.cc/zGbSXGgQ/6046476546270676523.jpg" alt="شمعة إضافية 2">
+            <h2>شمعة إضافية 2</h2>
+            <p class="price">1100 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة إضافية 2')">اطلب الآن</button>
+        </div>
+        <div class="product">
+            <img src="https://i.postimg.cc/0Q8wmkzP/6046476546270676522.jpg" alt="شمعة إضافية 3">
+            <h2>شمعة إضافية 3</h2>
+            <p class="price">1300 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة إضافية 3')">اطلب الآن</button>
+        </div>
+        <div class="product">
+            <img src="https://i.postimg.cc/TYyWnH3L/6046476546270676531.jpg" alt="شمعة إضافية 4">
+            <h2>شمعة إضافية 4</h2>
+            <p class="price">1400 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة إضافية 4')">اطلب الآن</button>
+        </div>
+        <div class="product">
+            <img src="https://i.postimg.cc/vH6c4g05/6046476546270676530.jpg" alt="شمعة إضافية 5">
+            <h2>شمعة إضافية 5</h2>
+            <p class="price">1600 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة إضافية 5')">اطلب الآن</button>
+        </div>
+        <div class="product">
+            <img src="https://i.postimg.cc/CKJK3jKp/6050873957126620376.jpg" alt="شمعة إضافية 6">
+            <h2>شمعة إضافية 6</h2>
+            <p class="price">1700 دج</p>
+            <button class="order-btn" onclick="openOrderForm('شمعة إضافية 6')">اطلب الآن</button>
+        </div>
+    </div>
+
+    <div class="form-container" id="orderForm">
+        <h2>📋 نموذج الطلب</h2>
+        <form onsubmit="submitOrder(event)">
+            <input type="text" id="fullName" placeholder="✍️ الاسم الكامل (مثال: محمد علي)" required>
+            <input type="tel" id="phoneNumber" placeholder="📞 رقم الهاتف (مثال: 0555-123-456)" required>
+            <label for="stateSelect">🌍 الولاية:</label>
+            <select id="stateSelect" name="state" required>
+                <option value="">اختر الولاية</option>
+            </select>
+            <label for="districtSelect">🏘️ الدائرة:</label>
+            <select id="districtSelect" name="district" disabled>
+                <option value="">اختر أولاً الولاية</option>
+            </select>
+            <label for="citySelect">🏡 البلدية:</label>
+            <select id="citySelect" name="city" disabled required>
+                <option value="">اختر أولاً الولاية</option>
+            </select>
+            <label for="deliveryMethod">🚚 طريقة التوصيل:</label>
+            <select id="deliveryMethod" name="deliveryMethod">
+                <option value="door">توصيل للباب – 30 دج</option>
+                <option value="pickup">استلام من المكتب – 20 دج</option>
+                <option value="freeTlemcen">توصيل مجاني داخل ولاية تلمسان</option>
+            </select>
+            <label for="productSelect">🕯️ الشمعة:</label>
+            <select id="productSelect" name="product">
+                <option value="">اختر الشمعة</option>
+            </select>
+            <div id="productThumbnail" style="margin: 10px 0; display: none;">
+                <img id="thumbnailImage" src="" alt="صورة الشمعة" style="max-width: 100px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            </div>
+            <label for="quantity">🔢 الكمية:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" placeholder="1">
+            <p id="deliveryCost" style="font-weight: bold; color: #d35400;">تكلفة التوصيل: 0 دج</p>
+            <p id="totalPrice" style="font-weight: bold; color: #d35400;">السعر الإجمالي: <span id="totalAmount">0</span> دج</p>
+            <button type="submit" style="background-color: #27ae60; font-size: 18px;">✅ إرسال الطلب</button>
+        </form>
+        <button onclick="closeOrderForm()" style="background-color: #e74c3c; color: white; margin-top: 10px;">❌ إغلاق</button>
+    </div>
+
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <img id="modalImage" src="" alt="Product Image">
+            <h2 id="modalTitle">اسم المنتج</h2>
+            <p id="modalDescription">وصف المنتج بالتفصيل</p>
+            <p class="price" id="modalPrice">السعر: 0 دج</p>
+            <button class="order-btn" onclick="orderViaWhatsApp()">اطلب الآن عبر واتساب</button>
+            <button class="order-btn" onclick="addToCart()">أضف إلى السلة</button>
+        </div>
+    </div>
+
+    <div class="social-media-section" style="text-align: center; margin-top: 40px; padding: 20px; background-color: #fbe4c4; border-top: 2px solid #d4af37;">
+        <div style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap;">
+            <a href="https://facebook.com/صفحتك" target="_blank">
+                <img src="https://i.postimg.cc/3x3QzSGq/facebook-logo.png" alt="Facebook Logo" style="width: 60px; height: auto;">
+            </a>
+            <a href="https://instagram.com/حسابك" target="_blank">
+                <img src="https://i.postimg.cc/3x3QzSGq/instagram-logo.png" alt="Instagram Logo" style="width: 60px; height: auto;">
+            </a>
+            <a href="https://tiktok.com/@اسمك" target="_blank">
+                <img src="https://i.postimg.cc/3x3QzSGq/tiktok-logo.png" alt="TikTok Logo" style="width: 60px; height: auto;">
+            </a>
+            <a href="https://wa.me/213رقمك" target="_blank">
+                <img src="https://i.postimg.cc/3x3QzSGq/whatsapp-logo.png" alt="WhatsApp Logo" style="width: 60px; height: auto;">
+            </a>
+        </div>
+        <p style="margin-top: 10px; font-family: 'Amiri', serif; font-size: 16px; color: #4a4a4a;">
+            📩 للتواصل أو للاستفسارات يرجى الضغط على المنصة المناسبة
+        </p>
+    </div>
+
+    <script>
+        const algeriaData = {
+ 
+            "تلمسان": ["تلمسان", "المنصورة", "الرمشي", "مغنية", "سبدو", "النمامشة"],
+            "سيدي بلعباس": ["سيدي بلعباس", "عين البرد", "مازونة", "شعيب", "سيدي حسان"],
+        };
+
+        const deliveryCosts = {
+            
+            "تلمسان": 0,
+            "سيدي بلعباس": 30,
+        
+        };
+
+        const stateSelect = document.getElementById('stateSelect');
+        const citySelect = document.getElementById('citySelect');
+
+        function populateStates() {
+            Object.keys(algeriaData).forEach(state => {
+                const opt = document.createElement('option');
+                opt.value = state;
+                opt.textContent = state;
+                stateSelect.appendChild(opt);
+            });
+        }
+
+        function populateCities() {
+            const selectedState = stateSelect.value;
+            citySelect.innerHTML = '';
+            citySelect.disabled = true;
+            if (!selectedState) {
+                citySelect.innerHTML = '<option value="">اختر أولاً الولاية</option>';
+                return;
+            }
+            algeriaData[selectedState].forEach(city => {
+                const opt = document.createElement('option');
+                opt.value = city;
+                opt.textContent = city;
+                citySelect.appendChild(opt);
+            });
+            citySelect.disabled = false;
+        }
+
+        function calculateDeliveryCost(state) {
+            const deliveryMethod = document.getElementById('deliveryMethod').value;
+            if (state === "تلمسان" && deliveryMethod === "freeTlemcen") {
+                return 0;
+            }
+            return deliveryMethod === "pickup" ? 20 : (deliveryCosts[state] || 30);
+        }
+
+        function updateDeliveryCost() {
+            const state = stateSelect.value;
+            const cost = calculateDeliveryCost(state);
+            alert(`تكلفة التوصيل: ${cost} دج`);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateStates();
+            stateSelect.addEventListener('change', () => {
+                populateCities();
+                updateDeliveryCost();
+            });
+            document.getElementById('deliveryMethod').addEventListener('change', updateDeliveryCost);
+        });
+
+        function openOrderForm(productName) {
+            const orderForm = document.getElementById('orderForm');
+            const productSelect = document.getElementById('productSelect');
+            const productThumbnail = document.getElementById('productThumbnail');
+            const thumbnailImage = document.getElementById('thumbnailImage');
+            const quantityInput = document.getElementById('quantity');
+
+            // Set the selected product in the dropdown
+            Array.from(productSelect.options).forEach(option => {
+                if (option.textContent.includes(productName)) {
+                    productSelect.value = option.value;
+                }
+            });
+
+            // Update the thumbnail image
+            const productElement = Array.from(document.querySelectorAll('.product h2')).find(h2 => h2.textContent === productName);
+            if (productElement) {
+                const productImage = productElement.previousElementSibling.getAttribute('src');
+                thumbnailImage.src = productImage;
+                productThumbnail.style.display = 'block';
+            } else {
+                productThumbnail.style.display = 'none';
+            }
+
+            // Reset quantity to 1
+            quantityInput.value = 1;
+
+            // Show the order form
+            orderForm.classList.add('active');
+
+            // Scroll to the order form
+            orderForm.scrollIntoView({ behavior: 'smooth' });
+
+            // Update costs
+            updateCosts();
+        }
+
+        function closeOrderForm() {
+            document.getElementById('orderForm').classList.remove('active');
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            const fullName = document.getElementById('fullName').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const productName = document.getElementById('productName').value.trim();
+
+            if (!fullName || !phoneNumber || !productName) {
+                alert("يرجى ملء جميع الحقول المطلوبة.");
+                return;
+            }
+
+            // Display confirmation message
+            const notification = document.getElementById('notification');
+            notification.textContent = "✅ شكرًا لطلبك! سنتواصل معك قريبًا.";
+            notification.style.display = 'block';
+
+            // Reset form
+            document.querySelector('form').reset();
+            document.getElementById('orderForm').classList.remove('active');
+        }
+
+        const deliveryMethodSelect = document.getElementById('deliveryMethod');
+        const quantityInput = document.getElementById('quantity');
+        const deliveryCostElement = document.getElementById('deliveryCost');
+        const totalAmountElement = document.getElementById('totalAmount');
+        const productSelect = document.getElementById('productSelect');
+
+        function getProductPrice() {
+            const selectedOption = productSelect.options[productSelect.selectedIndex];
+            return parseInt(selectedOption.value, 10) || 0;
+        }
+
+        function getDeliveryCost() {
+            const state = stateSelect.value;
+            const method = deliveryMethodSelect.value;
+            if (method === 'freeTlemcen' && state === 'تلمسان') return 0;
+            if (method === 'door') return 30;
+            if (method === 'pickup') return 20;
+            return 0;
+        }
+
+        function updateCosts() {
+            const productSelect = document.getElementById('productSelect');
+            const deliveryMethodSelect = document.getElementById('deliveryMethod');
+            const quantityInput = document.getElementById('quantity');
+            const deliveryCostElement = document.getElementById('deliveryCost');
+            const totalAmountElement = document.getElementById('totalAmount');
+            const stateSelect = document.getElementById('stateSelect');
+
+            const productPrice = parseInt(productSelect.value, 10) || 0;
+            const quantity = parseInt(quantityInput.value, 10) || 1;
+            const deliveryCost = getDeliveryCost();
+            const total = productPrice * quantity + deliveryCost;
+
+            deliveryCostElement.textContent = `تكلفة التوصيل: ${deliveryCost} دج`;
+            totalAmountElement.textContent = total;
+        }
+
+        productSelect.addEventListener('change', updateCosts);
+        deliveryMethodSelect.addEventListener('change', updateCosts);
+        quantityInput.addEventListener('input', updateCosts);
+        stateSelect.addEventListener('change', updateCosts);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCosts();
+        });
+
+        function formatPrice(price) {
+            return price.toLocaleString('fr-FR') + ' DA'; // Format price in French style
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.product .price').forEach(priceElement => {
+                const priceText = priceElement.textContent.trim().match(/\d+/g)?.join('');
+                if (priceText) {
+                    priceElement.textContent = formatPrice(Number(priceText));
+                }
+            });
+        });
+
+        // تأكد من أن جميع الروابط والصور تستخدم مسارات مطلقة أو روابط URL كاملة
+        const baseURL = window.location.origin;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.src.startsWith('http')) {
+                    img.src = `${baseURL}/${img.getAttribute('src')}`;
+                }
+            });
+        });
+
+        // تأكد من أن روابط WhatsApp تعمل بشكل صحيح
+        const whatsappNumber = "0556290604"; // تأكد من صحة الرقم
+        function submitOrder(event) {
+            event.preventDefault();
+            const fullName = document.getElementById('fullName').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const state = stateSelect.value;
+            const city = citySelect.value;
+            const productName = document.getElementById('productName').value.trim();
+            const quantity = document.getElementById('orderQuantity').value;
+
+            if (!fullName || !phoneNumber || !state || !city || !productName || !quantity) {
+                alert("يرجى ملء جميع الحقول المطلوبة.");
+                return;
+            }
+
+            const message = `طلب جديد:
+الاسم: ${fullName}
+رقم الهاتف: ${phoneNumber}
+الولاية: ${state}
+البلدية: ${city}
+المنتج: ${productName}
+الكمية: ${quantity}`;
+
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Dynamically populate the "اختر الشمعة" dropdown with all products
+        function populateProductDropdown() {
+            const productSelect = document.getElementById('productSelect');
+            const products = document.querySelectorAll('.product h2');
+            productSelect.innerHTML = '<option value="">اختر الشمعة</option>'; // Reset options
+
+            products.forEach(product => {
+                const option = document.createElement('option');
+                const priceElement = product.nextElementSibling; // Get the price element
+                const price = priceElement ? priceElement.textContent.match(/\d+/g)?.join('') : '0';
+                option.value = price;
+                option.textContent = `${product.textContent} – ${price} دج`;
+                productSelect.appendChild(option);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateProductDropdown(); // Populate the dropdown on page load
+        });
+
+        // Update the thumbnail image when a product is selected
+        function updateProductThumbnail() {
+            const productSelect = document.getElementById('productSelect');
+            const selectedOption = productSelect.options[productSelect.selectedIndex];
+            const productName = selectedOption.textContent.split(' – ')[0].trim();
+            const productThumbnail = document.getElementById('productThumbnail');
+            const thumbnailImage = document.getElementById('thumbnailImage');
+
+            // Find the corresponding product image
+            const productElement = Array.from(document.querySelectorAll('.product h2')).find(h2 => h2.textContent === productName);
+            if (productElement) {
+                const productImage = productElement.previousElementSibling.getAttribute('src');
+                thumbnailImage.src = productImage;
+                productThumbnail.style.display = 'block';
+            } else {
+                productThumbnail.style.display = 'none';
+            }
+        }
+
+        document.getElementById('productSelect').addEventListener('change', updateProductThumbnail);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateProductDropdown(); // Populate the dropdown on page load
+            updateProductThumbnail(); // Ensure thumbnail updates on page load
+        });
+
+        function openModal(productName, productImage, productDescription, productPrice) {
+            document.getElementById('modalTitle').textContent = productName;
+            document.getElementById('modalImage').src = productImage;
+            document.getElementById('modalDescription').textContent = productDescription;
+            document.getElementById('modalPrice').textContent = `السعر: ${productPrice} دج`;
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        function orderViaWhatsApp() {
+            const productName = document.getElementById('modalTitle').textContent;
+            const whatsappNumber = "0556290604";
+            const message = `مرحبًا، أود طلب المنتج: ${productName}`;
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        function addToCart() {
+            alert("تمت إضافة المنتج إلى السلة!");
+        }
+
+        document.querySelectorAll('.product .order-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productElement = event.target.closest('.product');
+                const productName = productElement.querySelector('h2').textContent;
+                const productImage = productElement.querySelector('img').src;
+                const productPrice = productElement.querySelector('.price').textContent.match(/\d+/g)?.join('');
+                const productDescription = `✨ شمعة مصنوعة يدويًا برائحة الورد والليلي.
+🕯️ مدة احتراق: 30 ساعة
+🌿 مصنوعة من شمع طبيعي 100%، غير مضر بالصحة`;
+                openModal(productName, productImage, productDescription, productPrice);
+            });
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
